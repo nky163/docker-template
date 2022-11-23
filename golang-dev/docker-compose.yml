@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  golang:
+    container_name: golang
+    build:
+      context: ./docker/golang/
+      dockerfile: ./Dockerfile
+    tty: true
+    volumes:
+    - .:/workspace
+    - ~/.ssh:/home/${CONTAINER_USER:-user}/.ssh:ro
+    working_dir: /workspace

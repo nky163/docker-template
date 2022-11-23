@@ -1,12 +1,13 @@
 version: '3.6'
 services:
   java:
+    container_name: java
     build:
       context: ./docker/java/
       dockerfile: ./Dockerfile
     tty: true
     volumes:
-    - ./:/workspace
+    - .:/workspace
     - ~/.ssh:/home/${CONTAINER_USER:-user}/.ssh:ro
     working_dir: /workspace
     # environment:
