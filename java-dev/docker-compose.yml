@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  java:
+    build:
+      context: ./docker/java/
+      dockerfile: ./Dockerfile
+    tty: true
+    volumes:
+    - ./:/workspace
+    - ~/.ssh:/home/${CONTAINER_USER:-user}/.ssh:ro
+    working_dir: /workspace
+    # environment:
+    # - HOST_UID=${HOST_UID:-1000}
+    # - HOST_GID=${HOST_GID:-1000}
+    # - CONTAINER_USER=${CONTAINER_USER:-user}
+    # - CONTAINER_GROUP=${CONTAINER_GROUP:-user}
